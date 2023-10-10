@@ -1,138 +1,132 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../../style.css">
-        <link rel="stylesheet" href="formPg1.css">
-        <script src="formPg1.js"></script>
-        <title id="brand"></title>
-    </head>
-    <body onload="start()">
-        <section class="card" id="card1">
-            <div class="titulo">
-                <h1>Dados Pessoais</h1>
-            </div>
 
-            <div class="name">
-                <label for="name" class="label">Nome completo</label>
-                <input class="input" id="name" type="text">
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="formPg1.css">
+    <script src="formPg1.js"></script>
+    <title id="brand"></title>
+</head>
 
-            <div class="phone">
-                <label for="phone" class="label">Telefone</label>
-                <input class="input" id="phone" type="phone">
-            </div>
+<body onload="start()">
+    <section class="card" id="card1">
+        <div class="titulo">
+            <h1>Dados Pessoais</h1>
+        </div>
 
-            <div class="birth-date">
-                <label for="birth-date" class="label">Data de nascimento</label>
-                <input class="input" id="birth-date" type="date">
-            </div>
+        <div class="name">
+            <label for="name" class="label">Nome completo</label>
+            <input class="input" id="name" type="text">
+        </div>
 
-            <div class="sex">
-                <label for="sex" class="label">Sexo</label>
-                <select name="select" class="input">
-                    <option value="" selected>Selecione...</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
-            </div>
+        <div class="phone">
+            <label for="phone" class="label">Telefone</label>
+            <input class="input" id="phone" type="phone">
+        </div>
 
-            <div class="email">
-                <label for="email" class="label">Email</label>
-                <input class="input" id="email" type="email">
-            </div>
-            
-            <div class="objetivo">
-                <label for="objetivo" class="label">Seu Objetivo</label>
-                <input type="text" id="objetivo" class="input">
-            </div>
-            <div>
-                <button class="btn-save" onclick="nextForm1()">Próximo</button>
-            </div>
-        </section>
+        <div class="birth-date">
+            <label for="birth-date" class="label">Data de nascimento</label>
+            <input class="input" id="birth-date" type="date">
+        </div>
 
-        <section class="card" id="card2">
-            <div class="titulo">
-                <h1>Dados Endereço</h1>
-            </div>
+        <div class="sex">
+            <label for="sex" class="label">Sexo</label>
+            <select name="select" class="input">
+                <option value="" selected>Selecione...</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+            </select>
+        </div>
 
-            <div class="cep">
-                <label for="cep" class="label">CEP</label>
-                <input class="input" id="cep" type="text" maxlength="8">
-            </div>
-            <button class="search">
-                <img src="../../../Icons/search_FILL0_wght400_GRAD0_opsz24.png" alt="">
-            </button>
+        <div class="email">
+            <label for="email" class="label">Email</label>
+            <input class="input" id="email" type="email">
+        </div>
 
-            <div class="neighborhood">
-                <label for="neighborhood" class="label">Bairro</label>
-                <input class="input" id="neighborhood" type="text" disabled>
-            </div>
+        <div class="objetivo">
+            <label for="objetivo" class="label">Seu Objetivo</label>
+            <input type="text" id="objetivo" class="input">
+        </div>
+        <div class="btn-section">
+            <button class="btn-save" onclick="nextForm1()">Próximo</button>
+        </div>
+    </section>
 
-            <div class="neighborhood">
-                <label for="state" class="label">Estado</label>
-                <input type="text" class="input" id="state" disabled>
-            </div>
+    <section class="card" id="card2">
+        <div class="titulo">
+            <h1>Dados Endereço</h1>
+        </div>
 
-            <div class="neighborhood">
-                <label for="city" class="label">Cidade</label>
-                <input type="text" class="input" id="city" disabled>
-            </div>
+        <div class="cep">
+            <label for="cep" class="label">CEP</label>
+            <input class="input" id="cep" type="text" maxlength="8">
+        </div>
+        <button class="search">
+            <img src="../../../Icons/search_FILL0_wght400_GRAD0_opsz24.png" alt="">
+        </button>
 
-            <div class="neighborhood">
-                <label for="street" class="label">Rua</label>
-                <input type="text" class="input" id="street" disabled>
-            </div>
+        <div class="neighborhood">
+            <label for="neighborhood" class="label">Bairro</label>
+            <input class="input" id="neighborhood" type="text" disabled>
+        </div>
+
+        <div class="neighborhood">
+            <label for="state" class="label">Estado</label>
+            <input type="text" class="input" id="state" disabled>
+        </div>
+
+        <div class="neighborhood">
+            <label for="city" class="label">Cidade</label>
+            <input type="text" class="input" id="city" disabled>
+        </div>
+
+        <div class="neighborhood">
+            <label for="street" class="label">Rua</label>
+            <input type="text" class="input" id="street" disabled>
+        </div>
+
+        <div class="btns">
+            <button class="btn-save" onclick="previousForm2()">Voltar</button>
+            <p>1/5</p>
+            <button class="btn-save" onclick="nextForm2()">Próximo</button>
+        </div>
+    </section>
 
 
-            <div class="btns">
-                <button class="btn-save" onclick="previousForm2()">Voltar</button>
-                <p>1/5</p>
-                <button class="btn-save" onclick="nextForm2()">Próximo</button>
-            </div>
-        </section>
+    <section class="card" id="card3">
+        <div class="titulo">
+            <h1>Dados Universitários</h1>
+        </div>
 
-        <section class="card" id="card3">
-            <div class="titulo">
-                <h1>Dados Universitários</h1>
-            </div>
+        <div class="college">
+            <label for="college" class="label">Faculdade</label>
+            <input class="input" id="college" type="text">
+        </div>
 
-            <div class="name">
-                <label for="name" class="label">Nome completo</label>
-                <input class="input" id="name" type="text">
-            </div>
+        <div class="course">
+            <label for="course" class="label">Curso</label>
+            <select name="select" class="input">
+                <option value="" selected>Selecione...</option>
+                <option value="Masculino">Curso1</option>
+                <option value="Feminino">Curso2</option>
+            </select>
+        </div>
 
-            <div class="phone">
-                <label for="phone" class="label">Telefone</label>
-                <input class="input" id="phone" type="phone">
-            </div>
+        <div class="start-date">
+            <label for="start-date" class="label">Data de início</label>
+            <input class="input" id="start-date" type="date">
+        </div>
 
-            <div class="birth-date">
-                <label for="birth-date" class="label">Data de nascimento</label>
-                <input class="input" id="birth-date" type="date">
-            </div>
+        <div class="end-date">
+            <label for="end-date" class="label">Previsão de conclusão</label>
+            <input class="input" id="end-date" type="date">
+        </div>
 
-            <div class="sex">
-                <label for="sex" class="label">Sexo</label>
-                <select name="select" class="input">
-                    <option value="" selected>Selecione...</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
-            </div>
+        <div>
+            <button class="btn-save" onclick="previousForm3()">Voltar</button>
+            <button class="btn-save" onclick="nextForm3()">Próximo</button>
+        </div>
+    </section>
+</body>
 
-            <div class="email">
-                <label for="email" class="label">Email</label>
-                <input class="input" id="email" type="email">
-            </div>
-            
-            <div class="objetivo">
-                <label for="objetivo" class="label">Seu Objetivo</label>
-                <input type="text" id="objetivo" class="input">
-            </div>
-            <div>
-                <button class="btn-save" onclick="previousForm3()">Voltar</button>
-                <button class="btn-save" onclick="nextForm3()">Próximo</button>
-            </div>
-        </section>
-    </body>
 </html>
