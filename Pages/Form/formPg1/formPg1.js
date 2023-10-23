@@ -2,31 +2,32 @@ var title = "CVV - Form";
 
 function start() {
   document.getElementById("brand").innerText = title;
-  document.getElementById("card2").style.display = "none";
-  document.getElementById("card3").style.display = "none";
-
-  //TESTE
-  document.getElementById("card1").style.display = "none";
-  document.getElementById("card2").style.display = "none";
-  document.getElementById("card3").style.display = "flex";
 }
 
-function nextForm1() {
-  document.getElementById("card2").style.display = "flex";
-  document.getElementById("card1").style.display = "none";
-}
+function save() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const birthDate = document.getElementById("birth-date").value;
+  const sex = document.querySelector('select[name="select"]').value;
+  const email = document.getElementById("email").value;
+  const objetivo = document.getElementById("objetivo").value;
 
-function nextForm2() {
-  document.getElementById("card3").style.display = "flex";
-  document.getElementById("card2").style.display = "none";
-}
+  /*
+  if (!name || !phone || !birthDate || !sex || !email || !objetivo) {
+    alert("Por favor, preencha todos os campos obrigatórios.");
+    return;
+  }
+  */
 
-function previousForm2() {
-  document.getElementById("card1").style.display = "flex";
-  document.getElementById("card2").style.display = "none";
-}
+  const data = {
+    name: name,
+    phone: phone,
+    birthDate: birthDate,
+    sex: sex,
+    email: email,
+    objetivo: objetivo,
+  };
 
-function previousForm3() {
-  document.getElementById("card2").style.display = "flex";
-  document.getElementById("card3").style.display = "none";
+  localStorage.setItem("formData", JSON.stringify(data));
+  window.location.href = "../formPg2/formPg2.html";
 }

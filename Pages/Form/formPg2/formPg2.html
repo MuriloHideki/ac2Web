@@ -1,1 +1,62 @@
-<h1>FORM 2</h1>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../style.css">
+    <!--
+        <link rel="stylesheet" href="formPg2.css">
+    -->
+    <script src="formPg2.js"></script>
+    <title id="brand"></title>
+</head>
+
+<body onload="start()">
+    <form class="card" id="card1">
+        <div class="titulo">
+            <h1>Endereço</h1>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-11">
+                <label for="cep" class="label">*CEP</label>
+                <input type="text" class="form-control" id="cep" maxlength="8" required>
+            </div>
+
+            <div class="form-group col-md-1">
+                <button type="button" class="form-control" onclick="searchCep()"><img
+                        src="../../../Icons/search_FILL0_wght400_GRAD0_opsz24.png" alt="Imagem de Lupa"></button>
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="neighborhood" class="label">Bairro</label>
+                <input type="text" class="form-control" id="neighborhood" maxlength="9" disabled>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="state" class="label">Estado</label>
+                <input type="text" class="form-control" id="state" disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="city" class="label">Cidade</label>
+                <input type="text" class="form-control" id="city" maxlength="9" disabled>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="street" class="label">Rua</label>
+                <input type="text" class="form-control" id="street" disabled>
+            </div>
+        </div>
+        <div class="btn-section">
+            <button type="submit" class="btn-save" onclick="save()">Próximo</button>
+        </div>
+    </form>
+</body>
+
+</html>

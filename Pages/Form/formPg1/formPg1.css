@@ -20,19 +20,19 @@ body {
   box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.name {
+.input-full-line {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 }
 
-.name label {
+.input-full-line label {
   width: 100%;
   font-weight: bold;
 }
 
-.name input {
+.input-full-line input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -93,26 +93,6 @@ select {
   cursor: pointer;
 }
 
-.email {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-}
-
-.email label {
-  width: 100%;
-  font-weight: bold;
-}
-
-.email input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  font-size: 16px;
-}
-
 .objetivo {
   display: flex;
   flex-direction: column;
@@ -171,19 +151,41 @@ select {
   background-color: var(--background-input);
 }
 
-.neighborhood {
+.input-half-1 {
   display: flex;
   flex-direction: column;
-  width: 50%;
   align-items: center;
+  width: 48%;
+  margin-right: 2%;
 }
 
-.neighborhood label {
+.input-half-1 label {
   width: 100%;
   font-weight: bold;
 }
 
-.neighborhood input {
+.input-half-1 input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 16px;
+}
+
+.input-half-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+  margin-left: 2%;
+}
+
+.input-half-2 label {
+  width: 100%;
+  font-weight: bold;
+}
+
+.input-half-2 input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -221,36 +223,4 @@ select {
 .course label {
   width: 95%;
   font-weight: bold;
-}
-
-.start-date {
-  width: 50%;
-}
-
-.start-date label {
-  font-weight: bold;
-}
-
-.start-date input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  font-size: 16px;
-}
-
-.end-date {
-  width: 50%;
-}
-
-.end-date label {
-  font-weight: bold;
-}
-
-.end-date input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 16px;
-  font-size: 16px;
 }
