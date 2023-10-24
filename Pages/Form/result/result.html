@@ -2,17 +2,22 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../style.css">
-
-    <script src="result.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="result.js" defer></script>
     <title id="brand"></title>
-    
-    <script src="js/html2canvas.min.js"></script>
-    <script src="js/jsPDF/dist/jspdf.umd.js"></script>
 </head>
 
 <body onload="start()">
-    
+    <div id="contentToPrint" class="card">
+        <div class="card-body">
+            apenas um teste de body
+        </div>
+    </div>
 </body>
+<button id="btnGenerate" type="button">Convert HTML to PDF</button>
 
 </html>

@@ -4,59 +4,60 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../style.css">
-    <!--
-        <link rel="stylesheet" href="formPg1.css">
-    -->
+    <link rel="stylesheet" href="formPg1.css">
+
     <script src="formPg1.js"></script>
     <title id="brand"></title>
 </head>
 
 <body onload="start()">
-    <form class="card" id="card1">
-        <div class="titulo">
-            <h1>Dados Pessoais</h1>
-        </div>
-
-        <div class="form-group">
-            <label for="name" class="label">*Nome completo</label>
-            <input type="text" class="form-control" id="name" required>
-        </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="phone" class="label">*Telefone</label>
-                <input type="phone" class="form-control" id="phone" maxlength="9" required>
+    <div class="card">
+        <form class="card-body">
+            <div class="titulo">
+                <h1>Dados Pessoais</h1>
             </div>
 
-            <div class="form-group col-md-3">
-                <label for="birth-date" class="label">*Data de nascimento</label>
-                <input type="date" class="form-control" id="birth-date" required>
+            <div class="form-group">
+                <label for="name" class="label">*Nome completo</label>
+                <input type="text" class="form-control" id="name" required>
             </div>
 
-            <div class="form-group col-md-3">
-                <label for="sex" class="label">*Sexo</label>
-                <select name="select" class="form-control" required>
-                    <option value="" selected>Selecione...</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                </select>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone" class="label">*Telefone</label>
+                    <input type="phone" class="form-control" id="phone" maxlength="9" required>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="birth-date" class="label">*Data de nascimento</label>
+                    <input type="date" class="form-control" id="birth-date" required>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="sex" class="label">*Sexo</label>
+                    <select name="select" class="form-control" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="email" class="label">*Email</label>
-            <input type="email" class="form-control" id="email" required>
-        </div>
+            <div class="form-group">
+                <label for="email" class="label">*Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
 
-        <div class="form-group">
-            <label for="objetivo" class="label">Seu Objetivo</label>
-            <textarea class="form-control" id="objetivo" rows="3"></textarea>
-        </div>
-        <div class="btn-section">
-            <button type="button" class="btn-save" onclick="save()">Próximo</button>
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="objetivo" class="label">Seu Objetivo</label>
+                <textarea class="form-control" id="objetivo" rows="3"></textarea>
+            </div>
+            <div class="btn-section">
+                <button type="button" class="btn-save" onclick="save()">Próximo</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

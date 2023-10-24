@@ -1,6 +1,5 @@
 const existingData = localStorage.getItem("formData");
 var formData = existingData ? JSON.parse(existingData) : {};
-window.jsPDF = window.jspdf.jsPDF;
 
 function start() {
   if (existingData) {
@@ -11,24 +10,17 @@ function start() {
   }
 }
 
+const btnGenerate = document.querySelector("#btnGenerate");
 
-// Convert HTML content to PDF
-function Convert_HTML_To_PDF() {
-    var doc = new jsPDF();
-	
-    // Source HTMLElement or a string containing HTML.
-    var elementHTML = document.querySelector("#contentToPrint");
+btnGenerate.addEventListener("click", () => {
+  const content = document.querySelector("#contentToPrint");
 
-    doc.html(elementHTML, {
-        callback: function(doc) {
-            // Save the PDF
-            doc.save('document-html.pdf');
-        },
-        margin: [10, 10, 10, 10],
-        autoPaging: 'text',
-        x: 0,
-        y: 0,
-        width: 190, //target width in the PDF document
-        windowWidth: 675 //window width in CSS pixels
-    });
-}
+  const options = {
+    margin: [10, 10, 10, 10],
+    filename: "Currículo.pdf",
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+  };
+
+  html2pdf().set(options).from(content).save();
+});
