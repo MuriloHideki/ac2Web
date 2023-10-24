@@ -1,11 +1,5 @@
-const data = {
-  cep: "",
-  neighborhood: "",
-  state: "",
-  city: "",
-  street: "",
-  ddd: "",
-};
+const existingData = localStorage.getItem("formData");
+var formData = existingData ? JSON.parse(existingData) : {};
 
 function start() {}
 
@@ -16,26 +10,25 @@ function searchCep() {
   fetch(url)
     .then((response) => response.json())
     .then((jsonData) => {
-      data.cep = jsonData.cep;
-      data.neighborhood = jsonData.bairro;
-      data.state = jsonData.uf;
-      data.city = jsonData.localidade;
-      data.street = jsonData.logradouro;
-      data.ddd = jsonData.ddd;
+      formData.cep = jsonData.cep;
+      formData.neighborhood = jsonData.bairro;
+      formData.state = jsonData.uf;
+      formData.city = jsonData.localidade;
+      formData.street = jsonData.logradouro;
+      formData.ddd = jsonData.ddd;
 
-      console.log("Dados do CEP:", data);
-      this.helper();
+      this.setValuesOnScreen();
     })
     .catch((error) => {
-      console.error("Ocorreu um erro ao buscar o CEP:");
+      console.error("Ocorreu um erro ao buscar o CEP:" + error);
     });
 }
 
 function setValuesOnScreen() {
-  document.getElementById("state").value = data.state;
-  document.getElementById("neighborhood").value = data.neighborhood;
-  document.getElementById("city").value = data.city;
-  document.getElementById("street").value = data.street;
+  document.getElementById("state").value = formData.state;
+  document.getElementById("neighborhood").value = formData.neighborhood;
+  document.getElementById("city").value = formData.city;
+  document.getElementById("street").value = formData.street;
 }
 
 function save() {
@@ -46,6 +39,6 @@ function save() {
     }
     */
 
-  localStorage.setItem("formData", JSON.stringify(data));
+  localStorage.setItem("formData", JSON.stringify(formData));
   window.location.href = "../formPg3/formPg3.html";
 }

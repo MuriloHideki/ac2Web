@@ -5,12 +5,15 @@ function start() {
 }
 
 function save() {
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const birthDate = document.getElementById("birth-date").value;
-  const sex = document.querySelector('select[name="select"]').value;
-  const email = document.getElementById("email").value;
-  const objetivo = document.getElementById("objetivo").value;
+  const existingData = localStorage.getItem("formData");
+  var formData = existingData ? JSON.parse(existingData) : {};
+
+  formData.name = document.getElementById("name").value;
+  formData.phone = document.getElementById("phone").value;
+  formData.birthDate = document.getElementById("birth-date").value;
+  formData.sex = document.querySelector('select[name="select"]').value;
+  formData.email = document.getElementById("email").value;
+  formData.goal = document.getElementById("objetivo").value;
 
   /*
   if (!name || !phone || !birthDate || !sex || !email || !objetivo) {
@@ -19,15 +22,6 @@ function save() {
   }
   */
 
-  const data = {
-    name: name,
-    phone: phone,
-    birthDate: birthDate,
-    sex: sex,
-    email: email,
-    objetivo: objetivo,
-  };
-
-  localStorage.setItem("formData", JSON.stringify(data));
+  localStorage.setItem("formData", JSON.stringify(formData));
   window.location.href = "../formPg2/formPg2.html";
 }
