@@ -12,7 +12,13 @@
   --btn-text1: #094379;
   --btn-text2: #c6d1dc;
 
+  --btn-delete-1: #e08c8c;
+  --btn-delete-2: #a02121;
+  --btn-delete-text1: #a02121;
+  --btn-delete-text2: #e08c8c;
+
   .titulo {
+    text-align: center;
     font-size: 20px;
     color: var(--text2);
   }

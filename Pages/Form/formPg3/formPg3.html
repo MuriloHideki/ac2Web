@@ -2,46 +2,60 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../style.css">
-    <!--
-        <link rel="stylesheet" href="formPg3.css">
-    -->
+    <link rel="stylesheet" href="formPg3.css">
     <script src="formPg3.js"></script>
     <title id="brand"></title>
 </head>
 
 <body onload="start()">
-    <form class="card" id="card1">
-        <div class="titulo">
-            <h1>Dados Escolar</h1>
-        </div>
-
-        <div class="form-group">
-            <label for="college" class="label">*Faculdade</label>
-            <input type="text" class="form-control" id="college" required>
-        </div>
-
-        <div class="form-group">
-            <label for="course" class="label">*Curso</label>
-            <input type="text" class="form-control" id="course" required>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="startDate" class="label">*Data de ingressão</label>
-                <input type="date" class="form-control" id="startDate" required>
+    <div class="card-space">
+        <form class="card-content needs-validation" novalidate>
+            <div class="titulo">
+                <h1>Dados Escolar</h1>
             </div>
 
-            <div class="form-group col-md-6">
-                <label for="endDate" class="label">*Previsão de finalização</label>
-                <input type="date" class="form-control" id="endDate" required>
+            <div class="form-group">
+                <label for="college" class="label">*Faculdade</label>
+                <input type="text" class="form-control" id="college" required>
+                <div class="invalid-feedback">
+                    Por favor, informe qual faculdade está matriculado
+                </div>
             </div>
-        </div>
-        <div class="btn-section">
-            <button type="button" class="btn-save" onclick="save()">Próximo</button>
-        </div>
-    </form>
+
+            <div class="form-group">
+                <label for="course" class="label">*Curso</label>
+                <input type="text" class="form-control" id="course" required>
+                <div class="invalid-feedback">
+                    Por favor, informe qual o seu curso
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="startDate" class="label">*Data de ingressão</label>
+                    <input type="date" class="form-control" id="startDate" required>
+                    <div class="invalid-feedback">
+                        Por favor, informe a sua data de ingressão no curso
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="endDate" class="label">*Previsão de finalização</label>
+                    <input type="date" class="form-control" id="endDate" required>
+                    <div class="invalid-feedback">
+                        Por favor, informe a precisão da data de finalização do curso
+                    </div>
+                </div>
+            </div>
+            <div class="btn-section">
+                <button type="button" class="btn-save" onclick="save()">Próximo</button>
+            </div>
+        </form>
+    </div>
+
 </body>
 
 </html>

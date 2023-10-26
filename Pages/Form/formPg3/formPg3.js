@@ -1,21 +1,27 @@
 const existingData = localStorage.getItem("formData");
-var formData = existingData ? JSON.parse(existingData) : {};
+let formData = existingData ? JSON.parse(existingData) : {};
 
 function start() {}
 
 function save() {
-  /*
-      if (!name || !phone || !birthDate || !sex || !email || !objetivo) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        return;
-      }
-      */
+  formData.college = document.getElementById("college").value;
+  formData.course = document.getElementById("course").value;
+  formData.startDate = document.getElementById("startDate").value;
+  formData.endDate = document.getElementById("endDate").value;
 
-    formData.college = document.getElementById("college").value;
-    formData.course = document.getElementById("course").value;
-    formData.startDate = document.getElementById("startDate").value;
-    formData.endDate = document.getElementById("endDate").value;
+  let forms = document.querySelectorAll(".needs-validation");
 
-  localStorage.setItem("formData", JSON.stringify(formData));
-  window.location.href = "../formPg5/formPg5.html";
+  let isValid = true;
+  forms.forEach(function (form) {
+    if (!form.checkValidity()) {
+      event.stopPropagation();
+      isValid = false;
+    }
+    form.classList.add("was-validated");
+  });
+
+  if (isValid && isSearched) {
+    localStorage.setItem("formData", JSON.stringify(formData));
+    window.location.href = "../formPg3/formPg3.html";
+  }
 }

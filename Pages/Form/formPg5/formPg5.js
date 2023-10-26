@@ -3,11 +3,56 @@ var formData = existingData ? JSON.parse(existingData) : {};
 formData.chosenSkills = [];
 
 const skills = [
-  { name: "Habilidade 1", detail: "detalhe 1" },
-  { name: "Habilidade 2", detail: "detalhe 2" },
-  { name: "Habilidade 3", detail: "detalhe 3" },
-  { name: "Habilidade 4", detail: "detalhe 4" },
-  { name: "Habilidade 5", detail: "detalhe 5" },
+  {
+    name: "Comunicação eficaz",
+    detail:
+      "Expressar ideias de forma clara e concisa, tanto verbalmente quanto por escrito, adaptando-se ao público e aos colegas de trabalho.",
+  },
+  {
+    name: "Trabalho em equipe",
+    detail:
+      "Colaborar de forma produtiva com colegas, compartilhando responsabilidades e respeitando as opiniões dos outros para alcançar metas comuns.",
+  },
+  {
+    name: "Resolução de problemas",
+    detail:
+      "Identificar e abordar problemas de forma eficaz, utilizando a lógica e a criatividade para encontrar soluções viáveis e eficientes.",
+  },
+  {
+    name: "Pensamento crítico",
+    detail:
+      "Analisar informações de forma objetiva e tomar decisões informadas, considerando diferentes perspectivas e pontos de vista.",
+  },
+  {
+    name: "Liderança",
+    detail:
+      "Capacidade de orientar e motivar os outros, demonstrando habilidades de delegação, empatia e visão estratégica para alcançar os objetivos da equipe.",
+  },
+  {
+    name: "Adaptabilidade",
+    detail:
+      "Ser flexível e ágil diante de mudanças e desafios, demonstrando resiliência e a capacidade de se ajustar a novas circunstâncias.",
+  },
+  {
+    name: "Gerenciamento do tempo",
+    detail:
+      "Priorizar tarefas, cumprir prazos e manter um equilíbrio entre eficiência e qualidade, demonstrando capacidade de gerenciar múltiplas responsabilidades.",
+  },
+  {
+    name: "Empatia",
+    detail:
+      "Demonstrando sensibilidade às necessidades e emoções dos outros, promovendo um ambiente de trabalho inclusivo e solidário.",
+  },
+  {
+    name: "Pensamento criativo",
+    detail:
+      "Desenvolver e implementar ideias inovadoras e soluções criativas para desafios complexos, demonstrando originalidade e perspectivas únicas.",
+  },
+  {
+    name: "Resolução de conflitos",
+    detail:
+      "Habilidade de identificar, resolver e mediar conflitos de maneira construtiva, buscando soluções mutuamente benéficas para todas as partes envolvidas.",
+  },
 ];
 function start() {
   const selectElement = document.getElementById("skills");
@@ -44,10 +89,23 @@ function addSkill() {
     tr.appendChild(description);
 
     const item = document.createElement("td");
-    item.innerText = "Icone de lixo";
+    const button = document.createElement("button");
+    const icon = document.createElement("img");
+
+    icon.src = "../../../Icons/delete_FILL0_wght400_GRAD0_opsz24.png";
+    icon.alt = "Icone de lixeira";
+
+    button.appendChild(icon);
+    button.type = "button";
+    button.className = "btn-delete";
+    //button.onclick(removeSkill());
+
+    item.appendChild(button);
     tr.appendChild(item);
   }
 }
+
+function removeSkill() {}
 
 function getSkillByName(name) {
   for (let i = 0; i < skills.length; i++) {
@@ -58,13 +116,6 @@ function getSkillByName(name) {
 }
 
 function save() {
-  /*
-        if (!name || !phone || !birthDate || !sex || !email || !objetivo) {
-          alert("Por favor, preencha todos os campos obrigatórios.");
-          return;
-        }
-        */
-
   localStorage.setItem("formData", JSON.stringify(formData));
   window.location.href = "../result/result.html";
 }

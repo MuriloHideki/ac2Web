@@ -4,45 +4,46 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../style.css">
-    <!--
-        <link rel="stylesheet" href="formPg4.css">
-    -->
+    <link rel="stylesheet" href="formPg5.css">
     <script src="formPg5.js"></script>
     <title id="brand"></title>
 </head>
 
 <body onload="start()">
-    <form class="card" id="card1">
-        <div class="titulo">
-            <h1>Habilidades</h1>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-11">
-                <label for="skills" class="label">Habilidades</label>
-                <select multiple class="form-control" id="skills">
-                </select>
+    <div class="card-space">
+        <form class="card-content needs-validation" novalidate>
+            <div class="titulo">
+                <h1>Habilidades</h1>
             </div>
-            <div class="form-group col-md-1">
-                <button type="button" onclick="addSkill()">+</button>
+            <div class="form-row">
+                <div class="form-group col-md-11">
+                    <label for="skills" class="label">Habilidades</label>
+                    <select multiple class="form-control" id="skills">
+                    </select>
+                </div>
+                <div class="form-group col-md-1">
+                    <button type="button" onclick="addSkill()" class="button-icon"><img
+                            src="../../../Icons/add_FILL0_wght400_GRAD0_opsz24.png" alt="Sinal de soma"></button>
+                </div>
             </div>
-        </div>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Habilidade</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Remover</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-        </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Habilidade</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Remover</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
 
-        <div class="btn-section">
-            <button type="button" class="btn-save" onclick="save()">Próximo</button>
-        </div>
-    </form>
+            <div class="btn-section">
+                <button type="button" class="btn-save" onclick="save()">Próximo</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 const existingData = localStorage.getItem("formData");
-var formData = existingData ? JSON.parse(existingData) : {};
+let formData = existingData ? JSON.parse(existingData) : {};
+let isSearched = false;
 
 function start() {}
 
@@ -16,7 +17,7 @@ function searchCep() {
       formData.city = jsonData.localidade;
       formData.street = jsonData.logradouro;
       formData.ddd = jsonData.ddd;
-
+      isSearched = true;
       this.setValuesOnScreen();
     })
     .catch((error) => {
@@ -32,13 +33,19 @@ function setValuesOnScreen() {
 }
 
 function save() {
-  /*
-    if (!name || !phone || !birthDate || !sex || !email || !objetivo) {
-      alert("Por favor, preencha todos os campos obrigatórios.");
-      return;
-    }
-    */
+  let forms = document.querySelectorAll(".needs-validation");
 
-  localStorage.setItem("formData", JSON.stringify(formData));
-  window.location.href = "../formPg3/formPg3.html";
+  let isValid = true;
+  forms.forEach(function (form) {
+    if (!form.checkValidity()) {
+      event.stopPropagation();
+      isValid = false;
+    }
+    form.classList.add("was-validated");
+  });
+
+  if (isValid && isSearched) {
+    localStorage.setItem("formData", JSON.stringify(formData));
+    window.location.href = "../formPg3/formPg3.html";
+  }
 }
