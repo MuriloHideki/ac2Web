@@ -98,7 +98,7 @@ function addSkill() {
     button.appendChild(icon);
     button.type = "button";
     button.className = "btn-delete";
-    //button.onclick(removeSkill());
+    button.disabled = true;
 
     item.appendChild(button);
     tr.appendChild(item);

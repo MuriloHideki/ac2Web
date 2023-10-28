@@ -20,8 +20,8 @@ function save() {
     form.classList.add("was-validated");
   });
 
-  if (isValid && isSearched) {
+  if (isValid) {
     localStorage.setItem("formData", JSON.stringify(formData));
-    window.location.href = "../formPg3/formPg3.html";
+    window.location.href = "../formPg5/formPg5.html";
   }
 }
