@@ -8,6 +8,44 @@ function start() {
   } else {
     console.log("Nenhum dado de formulário encontrado.");
   }
+
+  let address =
+    formData.street +
+    "\n" +
+    formData.city +
+    ", " +
+    formData.state +
+    ", " +
+    formData.cep +
+    "\n" +
+    "(" +
+    formData.neighborhood +
+    ")";
+
+  let phone = "(" + formData.ddd + ") " + formData.phone;
+
+  let education =
+    formData.college +
+    "\n" +
+    formData.startDate +
+    " ~ " +
+    formData.endDate +
+    "\n" +
+    formData.course;
+
+  let skills = "";
+  formData.chosenSkills.forEach((skill) => {
+    skills += skill.name + ";\n";
+  });
+
+  document.getElementById("name").innerText = formData.name;
+  document.getElementById("birth-date").innerText = formData.birthDate;
+  document.getElementById("phone").innerText = phone;
+  document.getElementById("email").innerText = formData.email;
+  document.getElementById("address").innerText = address;
+  document.getElementById("goal").innerText = formData.goal;
+  document.getElementById("education").innerText = education;
+  document.getElementById("skills").innerText = skills;
 }
 
 const btnGenerate = document.querySelector("#btnGenerate");

@@ -1,0 +1,31 @@
+#contentToPrint{
+    border: 1px solid black;
+    padding: 5%;
+}
+
+table{
+    width: 100%;
+}
+
+.table-left{
+    width: 80%;
+}
+
+.table-right{
+    width: 20%;
+}
+
+.title{
+    color: #2079C7;
+}
+
+.content{
+    color: black;
+}
+
+
+.table-content{}
+
+#user{
+    height: 200px;
+}
