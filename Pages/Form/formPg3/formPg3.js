@@ -22,6 +22,6 @@ function save() {
 
   if (isValid) {
     localStorage.setItem("formData", JSON.stringify(formData));
-    window.location.href = "../formPg5/formPg5.html";
+    window.location.href = "../formPg4/formPg4.html";
   }
 }

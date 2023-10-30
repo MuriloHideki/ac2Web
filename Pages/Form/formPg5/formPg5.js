@@ -98,14 +98,19 @@ function addSkill() {
     button.appendChild(icon);
     button.type = "button";
     button.className = "btn-delete";
-    button.disabled = true;
+    button.addEventListener("click", removeSkill, tr, formData.chosenSkills.length - 1);
 
     item.appendChild(button);
     tr.appendChild(item);
   }
 }
 
-function removeSkill() {}
+function removeSkill(tableRow, index) {
+  formData.experiences.splice(index);
+
+  const tbody = document.getElementById("tbody");
+  tbody.deleteRow(tableRow.rowIndex);
+}
 
 function getSkillByName(name) {
   for (let i = 0; i < skills.length; i++) {

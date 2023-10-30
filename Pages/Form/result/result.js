@@ -38,6 +38,14 @@ function start() {
     skills += skill.name + ";\n";
   });
 
+  let experiences = "";
+  formData.experiences.forEach((experience) => {
+    experiences +=  experience.experienceName + "\n" + 
+                    experience.experiencePosition + "\n" +
+                    experience.experienceStartDate + " - " + experience.experienceEndDate + "\n" +
+                    experience.experienceDescription + "\n \n";
+  });
+
   document.getElementById("name").innerText = formData.name;
   document.getElementById("birth-date").innerText = formData.birthDate;
   document.getElementById("phone").innerText = phone;
@@ -46,6 +54,7 @@ function start() {
   document.getElementById("goal").innerText = formData.goal;
   document.getElementById("education").innerText = education;
   document.getElementById("skills").innerText = skills;
+  document.getElementById("experiences").innerText = experiences;
 }
 
 const btnGenerate = document.querySelector("#btnGenerate");
