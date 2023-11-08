@@ -1,6 +1,15 @@
-const existingData = localStorage.getItem("formData");
-var formData = existingData ? JSON.parse(existingData) : {};
-formData.chosenSkills = [];
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {};
+
+urlParams.forEach((value, key) => {
+  formData[key] = value; 
+});
+
+urlParams.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+
+chosenSkills = [];
 
 const skills = [
   {
@@ -54,6 +63,7 @@ const skills = [
       "Habilidade de identificar, resolver e mediar conflitos de maneira construtiva, buscando soluções mutuamente benéficas para todas as partes envolvidas.",
   },
 ];
+
 function start() {
   const selectElement = document.getElementById("skills");
   for (let i = 0; i < skills.length; i++) {
@@ -74,7 +84,7 @@ function addSkill() {
 
     console.log(selectedSkill);
 
-    formData.chosenSkills.push(selectedSkill);
+    chosenSkills.push(selectedSkill);
     selectElement.remove(selectedIndex);
     const tbody = document.getElementById("tbody");
     const tr = document.createElement("tr");
@@ -98,7 +108,7 @@ function addSkill() {
     button.appendChild(icon);
     button.type = "button";
     button.className = "btn-delete";
-    button.addEventListener("click", removeSkill, tr, formData.chosenSkills.length - 1);
+    button.addEventListener("click", removeSkill, tr, chosenSkills.length - 1);
 
     item.appendChild(button);
     tr.appendChild(item);
@@ -106,7 +116,7 @@ function addSkill() {
 }
 
 function removeSkill(tableRow, index) {
-  formData.experiences.splice(index);
+  chosenSkills.splice(index);
 
   const tbody = document.getElementById("tbody");
   tbody.deleteRow(tableRow.rowIndex);
@@ -120,7 +130,17 @@ function getSkillByName(name) {
   }
 }
 
-function save() {
-  localStorage.setItem("formData", JSON.stringify(formData));
-  window.location.href = "../result/result.html";
-}
+const form = document.getElementById("usuarioForms");
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (form.checkValidity()) {
+    formData.chosenSkills = JSON.stringify(chosenSkills);
+    const formDataFromForm = Object.fromEntries(new FormData(form));
+    Object.assign(formData, formDataFromForm);
+
+    const queryParameters = new URLSearchParams(formData).toString();
+    window.location.href = `../result/result.html?${queryParameters}`;
+  }
+});

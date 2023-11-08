@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="formPg2.css">
-    <script src="formPg2.js"></script>
-    <title id="brand"></title>
+
+    <title id="brand">CVV - Endereço</title>
 </head>
 
-<body onload="start()">
+<body>
     <div class="card-space">
-        <form class="card-content needs-validation" novalidate>
+        <form class="card-content needs-validation" id="usuarioForms" method="get">
             <div class="titulo">
                 <h1>Endereço</h1>
             </div>
@@ -19,7 +19,7 @@
             <div class="form-row">
                 <div class="form-group col-md-11">
                     <label for="cep" class="label">*CEP</label>
-                    <input type="text" class="form-control" id="cep" maxlength="8" required>
+                    <input type="text" class="form-control" id="cep" name="cep" maxlength="8" required>
                     <div class="invalid-feedback">
                         Por favor, insira um CEP para buscar
                     </div>
@@ -34,31 +34,33 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="neighborhood" class="label">Bairro</label>
-                    <input type="text" class="form-control" id="neighborhood" maxlength="9" disabled>
+                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" maxlength="9" disabled>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="state" class="label">Estado</label>
-                    <input type="text" class="form-control" id="state" disabled>
+                    <input type="text" class="form-control" id="state" name="state" disabled>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city" class="label">Cidade</label>
-                    <input type="text" class="form-control" id="city" maxlength="9" disabled>
+                    <input type="text" class="form-control" id="city" name="city" maxlength="9" disabled>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="street" class="label">Rua</label>
-                    <input type="text" class="form-control" id="street" disabled>
+                    <input type="text" class="form-control" id="street" name="street" disabled>
                 </div>
             </div>
+
             <div class="btn-section">
-                <button type="button" class="btn-save" onclick="save()">Próximo</button>
+                <input type="submit" class="btn-save" value="Próximo">
             </div>
         </form>
     </div>
-</body>
 
+    <script src="formPg2.js"></script>
+</body>
 </html>

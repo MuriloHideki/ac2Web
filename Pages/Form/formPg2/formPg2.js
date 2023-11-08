@@ -1,8 +1,13 @@
-const existingData = localStorage.getItem("formData");
-let formData = existingData ? JSON.parse(existingData) : {};
-let isSearched = false;
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {};
 
-function start() {}
+urlParams.forEach((value, key) => {
+  formData[key] = value; 
+});
+
+urlParams.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
 
 function searchCep() {
   const cep = document.getElementById("cep").value;
@@ -11,41 +16,31 @@ function searchCep() {
   fetch(url)
     .then((response) => response.json())
     .then((jsonData) => {
-      formData.cep = jsonData.cep;
       formData.neighborhood = jsonData.bairro;
       formData.state = jsonData.uf;
       formData.city = jsonData.localidade;
       formData.street = jsonData.logradouro;
-      formData.ddd = jsonData.ddd;
-      isSearched = true;
-      this.setValuesOnScreen();
+
+      document.getElementById("neighborhood").value = formData.neighborhood;
+      document.getElementById("state").value = formData.state;
+      document.getElementById("city").value = formData.city;
+      document.getElementById("street").value = formData.street;
     })
     .catch((error) => {
       console.error("Ocorreu um erro ao buscar o CEP:" + error);
     });
 }
 
-function setValuesOnScreen() {
-  document.getElementById("state").value = formData.state;
-  document.getElementById("neighborhood").value = formData.neighborhood;
-  document.getElementById("city").value = formData.city;
-  document.getElementById("street").value = formData.street;
-}
+const form = document.getElementById("usuarioForms");
 
-function save() {
-  let forms = document.querySelectorAll(".needs-validation");
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-  let isValid = true;
-  forms.forEach(function (form) {
-    if (!form.checkValidity()) {
-      event.stopPropagation();
-      isValid = false;
-    }
-    form.classList.add("was-validated");
-  });
+  if (form.checkValidity()) {
+    const formDataFromForm = Object.fromEntries(new FormData(form));
+    Object.assign(formData, formDataFromForm);
 
-  if (isValid && isSearched) {
-    localStorage.setItem("formData", JSON.stringify(formData));
-    window.location.href = "../formPg3/formPg3.html";
+    const queryParameters = new URLSearchParams(formData).toString();
+    window.location.href = `../formPg3/formPg3.html?${queryParameters}`;
   }
-}
+});

@@ -1,14 +1,17 @@
-const existingData = localStorage.getItem("formData");
-var formData = existingData ? JSON.parse(existingData) : {};
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {};
+const chosenSkills = {};
+const experiences = {};
+
+urlParams.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+
+urlParams.forEach((value, key) => {
+  formData[key] = value; 
+});
 
 function start() {
-  if (existingData) {
-    console.log("Dados do formulário recebidos:");
-    console.log(formData);
-  } else {
-    console.log("Nenhum dado de formulário encontrado.");
-  }
-
   let address =
     formData.street +
     "\n" +
@@ -22,8 +25,6 @@ function start() {
     formData.neighborhood +
     ")";
 
-  let phone = "(" + formData.ddd + ") " + formData.phone;
-
   let education =
     formData.college +
     "\n" +
@@ -34,24 +35,28 @@ function start() {
     formData.course;
 
   let skills = "";
-  formData.chosenSkills.forEach((skill) => {
+  const chosenSkills = JSON.parse(urlParams.get("chosenSkills"));
+  chosenSkills.forEach((skill) => {
     skills += skill.name + ";\n";
   });
 
   let experiences = "";
-  formData.experiences.forEach((experience) => {
+  const readExperiences = JSON.parse(urlParams.get("experiences"));
+  readExperiences.forEach((experience) => {
     experiences +=  experience.experienceName + "\n" + 
                     experience.experiencePosition + "\n" +
                     experience.experienceStartDate + " - " + experience.experienceEndDate + "\n" +
                     experience.experienceDescription + "\n \n";
   });
 
-  document.getElementById("name").innerText = formData.name;
+  let phone = "(" + formData.tel.slice(0, 2) + ") " + formData.tel.slice(2, 11);
+
+  document.getElementById("name").innerText = formData.userName;
   document.getElementById("birth-date").innerText = formData.birthDate;
   document.getElementById("phone").innerText = phone;
   document.getElementById("email").innerText = formData.email;
   document.getElementById("address").innerText = address;
-  document.getElementById("goal").innerText = formData.goal;
+  document.getElementById("goal").innerText = formData.objetivo;
   document.getElementById("education").innerText = education;
   document.getElementById("skills").innerText = skills;
   document.getElementById("experiences").innerText = experiences;

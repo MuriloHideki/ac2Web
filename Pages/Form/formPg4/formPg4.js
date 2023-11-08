@@ -1,7 +1,15 @@
-const existingData = localStorage.getItem("formData");
-var formData = existingData ? JSON.parse(existingData) : {};
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {};
 
-formData.experiences = [];
+urlParams.forEach((value, key) => {
+  formData[key] = value; 
+});
+
+urlParams.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
+
+experiences = [];
 
 function addExperience() {
   var enterpriseName = document.getElementById("enterprise").value;
@@ -10,7 +18,7 @@ function addExperience() {
   var endDate = document.getElementById("endDate").value;
   var description = document.getElementById("description").value;
 
-  formData.experiences.push({
+  experiences.push({
     experienceName: enterpriseName,
     experiencePosition: positionName,
     experienceStartDate: startDate,
@@ -48,7 +56,7 @@ function addExperience() {
   button.appendChild(icon);
   button.type = "button";
   button.className = "btn-delete";
-  button.addEventListener("click", removeSkill, tr, formData.experiences.length - 1);
+  button.addEventListener("click", removeSkill, tr, experiences.length - 1);
 
   item.appendChild(button);
   tr.appendChild(item);
@@ -61,13 +69,20 @@ function addExperience() {
 }
 
 function removeSkill(tableRow, index) {
-  formData.experiences.splice(index);
+  experiences.splice(index);
 
   const tbody = document.getElementById("tbody");
   tbody.deleteRow(tableRow.rowIndex);
 }
 
+const form = document.getElementById("usuarioForms");
+
 function save() {
-  localStorage.setItem("formData", JSON.stringify(formData));
-  window.location.href = "../result/result.html";
+  formData.experiences = JSON.stringify(experiences);
+
+  const formDataFromForm = Object.fromEntries(new FormData(form));
+  Object.assign(formData, formDataFromForm);
+
+  const queryParameters = new URLSearchParams(formData).toString();
+  window.location.href = `../formPg5/formPg5.html?${queryParameters}`;
 }

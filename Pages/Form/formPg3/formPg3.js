@@ -1,27 +1,24 @@
-const existingData = localStorage.getItem("formData");
-let formData = existingData ? JSON.parse(existingData) : {};
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {};
 
-function start() {}
+urlParams.forEach((value, key) => {
+  formData[key] = value; 
+});
 
-function save() {
-  formData.college = document.getElementById("college").value;
-  formData.course = document.getElementById("course").value;
-  formData.startDate = document.getElementById("startDate").value;
-  formData.endDate = document.getElementById("endDate").value;
+urlParams.forEach((value, key) => {
+  console.log(`${key}: ${value}`);
+});
 
-  let forms = document.querySelectorAll(".needs-validation");
+const form = document.getElementById("usuarioForms");
 
-  let isValid = true;
-  forms.forEach(function (form) {
-    if (!form.checkValidity()) {
-      event.stopPropagation();
-      isValid = false;
-    }
-    form.classList.add("was-validated");
-  });
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-  if (isValid) {
-    localStorage.setItem("formData", JSON.stringify(formData));
-    window.location.href = "../formPg4/formPg4.html";
+  if (form.checkValidity()) {
+    const formDataFromForm = Object.fromEntries(new FormData(form));
+    Object.assign(formData, formDataFromForm);
+
+    const queryParameters = new URLSearchParams(formData).toString();
+    window.location.href = `../formPg4/formPg4.html?${queryParameters}`;
   }
-}
+});
