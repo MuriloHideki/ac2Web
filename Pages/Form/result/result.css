@@ -24,7 +24,9 @@ table{
 }
 
 
-.table-content{}
+#btnGenerate{
+    margin: 2%;
+}
 
 #user{
     height: 200px;
