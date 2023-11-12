@@ -75,13 +75,8 @@ function removeSkill(tableRow, index) {
   tbody.deleteRow(tableRow.rowIndex);
 }
 
-const form = document.getElementById("usuarioForms");
-
 function save() {
   formData.experiences = JSON.stringify(experiences);
-
-  const formDataFromForm = Object.fromEntries(new FormData(form));
-  Object.assign(formData, formDataFromForm);
 
   const queryParameters = new URLSearchParams(formData).toString();
   window.location.href = `../formPg5/formPg5.html?${queryParameters}`;
