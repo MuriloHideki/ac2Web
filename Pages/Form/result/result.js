@@ -68,11 +68,10 @@ btnGenerate.addEventListener("click", () => {
   const content = document.querySelector("#contentToPrint");
 
   const options = {
-    margin: [10, 10, 10, 10],
+    margin: 1,
     filename: "Currículo.pdf",
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
+  
 
   html2pdf().set(options).from(content).save();
 });
